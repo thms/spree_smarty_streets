@@ -1,11 +1,11 @@
 module Spree
-  module Sendgrid
+  module SmartyStreets
     class Engine < Rails::Engine
       isolate_namespace Spree
-      engine_name 'spree_sendgrid'
+      engine_name 'spree_smarty_streets'
 
-      initializer "spree.sendgrid.preferences", :before => :load_config_initializers do |app|
-        Spree::Sendgrid::Config = Spree::SendgridConfiguration.new
+      initializer "spree.smarty_streets.preferences", :before => :load_config_initializers do |app|
+        Spree::SmartyStreets::Config = Spree::SmartyStreetsConfiguration.new
       end
 
       def self.activate

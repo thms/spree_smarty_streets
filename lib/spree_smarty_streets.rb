@@ -1,0 +1,1 @@
+require 'spree/smarty_streets'

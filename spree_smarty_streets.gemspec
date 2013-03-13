@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_sendgrid'
-  s.version     = '0.2.6'
-  s.summary     = 'Spree Commerce Extensions for Sendgrid'
+  s.name        = 'spree_smarty_streets'
+  s.version     = '0.1.0'
+  s.summary     = 'Spree Commerce Extensions for Address Validation via Smartystreets.com'
 
   s.author        = 'Thomas Boltze'
   s.email         = 'thomas.boltze@gmail.com'
@@ -11,9 +11,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
-  
-  # Newsletter API for sendgrid
-  s.add_dependency 'gatling_gun'
 
   s.has_rdoc = false
 end

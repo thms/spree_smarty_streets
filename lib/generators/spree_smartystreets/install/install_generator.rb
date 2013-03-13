@@ -1,18 +1,18 @@
-module SpreeSendgrid
+module SpreeSmarty_Streets
   module Generators
     class InstallGenerator < Rails::Generators::Base
 
       def add_javascripts
-        append_file "app/assets/javascripts/store/all.js", "//= require store/spree_sendgrid\n" 
-        append_file "app/assets/javascripts/admin/all.js", "//= require admin/spree_sendgrid\n" 
+        append_file "app/assets/javascripts/store/all.js", "//= require store/spree_smarty_streets\n" 
+        append_file "app/assets/javascripts/admin/all.js", "//= require admin/spree_smarty_streets\n" 
       end
 
       def add_stylesheets
-        inject_into_file "app/assets/stylesheets/store/all.css", " *= require store/spree_sendgrid\n", :before => /\*\//, :verbose => true
+        inject_into_file "app/assets/stylesheets/store/all.css", " *= require store/spree_smarty_streets\n", :before => /\*\//, :verbose => true
       end
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=spree_sendgrid'
+        run 'bundle exec rake railties:install:migrations FROM=spree_smarty_streets'
       end
 
       def run_migrations

@@ -1,50 +1,36 @@
-# Spree Gift Sendgrid extension
+# Spree smartystreets extension
 
-The Spree sendgrid extension enables the use to express prferences for mail communications and subscribe to alerts and newsletters, being sent by sendgrid
+The Spree smartystreets extension enables address validation via the smartystreets web service and county based decisions in spree
 
 ## Installation
 
 1. Add the following to your Gemfile
 
 <pre>
-    gem 'spree_sendgrid'
+    gem 'spree_smarty_streets'
 </pre>
 
 2. Run `bundle install`
 
-3. To setup the asset pipeline includes and copy migrations run: `rails g spree_sendgrid:install`
+3. To setup the asset pipeline includes and copy migrations run: `rails g spree_smartystreets:install`
 
 
 ## Functions
 
-1. Users with an account
+1. Address validation
 
-They can opt-in / out to receive generic newsletter
-They can opt-in / out to receive availability alerts, e.g. when shipping to a new state becomes available
-They can opt-in / out to receive updates when new products become available
+Shipping (and billing) addresses can be validated before submission to active shipping for rate requests, to get more accurate rates
 
-2. Users without an account
+2. County based function
 
-They can subscribe to receive the generic newsletter (from the homepage)
-They can unsubscribe from within the newsletter
-When they create an account, their existing subscription is ported over to the account, where they can consequently manage it
+The address validation also returns the county, which is useful for tax rate calculations and county based logic
+
+
 
 
 ## Setup
 
-1. Create recipients lists
+1. API Credentials
 
-In order to setup the sendgrid lists, use this piece of code. It will create on list for each notification type and environment.
+Create an account on smartystreets.com and enter the credentials in smarty_streets.yml
 
-<pre>
-	require 'gatling_gun'
-	sendgrid = GatlingGun.new("login", "password")
-	environments = ['production','staging','development']
-	kinds = ['newsletter', 'availability', 'new_product']
-
-	environments.each do |env|
-	 kinds.each do |kind|
-	  response = sendgrid.add_list("#{kind}_#{env}")
-	 end
-	end
-</pre>
